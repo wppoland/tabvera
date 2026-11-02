@@ -1,7 +1,7 @@
-# Tabby
+# Tabvera
 
-- **Plugin page:** https://plogins.com/tabby/
-- **Documentation:** https://plogins.com/tabby/docs/
+- **Plugin page:** https://plogins.com/tabvera/
+- **Documentation:** https://plogins.com/tabvera/docs/
 - **Author:** [WPPoland.com](https://wppoland.com)
 - **WordPress.org contributor:** motylanogha
 - **Source:** https://github.com/wppoland/tabvera
