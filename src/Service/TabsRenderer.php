@@ -137,7 +137,10 @@ final class TabsRenderer implements HasHooks
 
         $html = $this->formatPanelHtml($resolved->content, $resolved, $this->currentProduct());
 
-        if ('' === trim(wp_strip_all_tags($html))) {
+        // Media counts as content: a panel holding only images (an assembly
+        // scheme, a size chart) has no text and used to print as an empty
+        // panel behind a clickable tab.
+        if ('' === trim(wp_strip_all_tags($html)) && 1 !== preg_match('/<(img|video|audio)\b/i', $html)) {
             return;
         }
 
