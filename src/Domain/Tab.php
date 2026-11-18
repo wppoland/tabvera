@@ -25,6 +25,16 @@ final class Tab
     public const SOURCE_PRODUCT = 'product';
 
     /**
+     * Where a tab sits among the native WooCommerce tabs. After reviews is the
+     * default and the only placement before 1.2.0, so stored tabs without a
+     * position render exactly where they always did.
+     */
+    public const POSITION_FIRST             = 'first';
+    public const POSITION_AFTER_DESCRIPTION = 'after_description';
+    public const POSITION_BEFORE_REVIEWS    = 'before_reviews';
+    public const POSITION_AFTER_REVIEWS     = 'after_reviews';
+
+    /**
      * @param string $source One of self::SOURCE_* describing where the tab
      *                       originates. Add-ons (e.g. category rules) branch on
      *                       this to decide whether a tab is subject to their
@@ -36,7 +46,35 @@ final class Tab
         public readonly string $content,
         public readonly bool $enabled = true,
         public readonly string $source = self::SOURCE_GLOBAL,
+        public readonly string $position = self::POSITION_AFTER_REVIEWS,
     ) {
+    }
+
+    /**
+     * Position choices with their labels, in strip order.
+     *
+     * @return array<string, string>
+     */
+    public static function positions(): array
+    {
+        return [
+            self::POSITION_FIRST             => __('First', 'tabvera'),
+            self::POSITION_AFTER_DESCRIPTION => __('After description', 'tabvera'),
+            self::POSITION_BEFORE_REVIEWS    => __('Before reviews', 'tabvera'),
+            self::POSITION_AFTER_REVIEWS     => __('After reviews', 'tabvera'),
+        ];
+    }
+
+    /**
+     * A known position, or the default for anything else.
+     */
+    public static function normalisePosition(mixed $position): string
+    {
+        $position = is_string($position) ? $position : '';
+
+        return in_array($position, [self::POSITION_FIRST, self::POSITION_AFTER_DESCRIPTION, self::POSITION_BEFORE_REVIEWS], true)
+            ? $position
+            : self::POSITION_AFTER_REVIEWS;
     }
 
     /**
@@ -62,7 +100,7 @@ final class Tab
             $source = self::SOURCE_GLOBAL;
         }
 
-        return new self($id, $title, $content, $enabled, $source);
+        return new self($id, $title, $content, $enabled, $source, self::normalisePosition($raw['position'] ?? null));
     }
 
     /**
@@ -71,11 +109,12 @@ final class Tab
     public function toArray(): array
     {
         return [
-            'id'      => $this->id,
-            'title'   => $this->title,
-            'content' => $this->content,
-            'enabled' => $this->enabled,
-            'source'  => $this->source,
+            'id'       => $this->id,
+            'title'    => $this->title,
+            'content'  => $this->content,
+            'enabled'  => $this->enabled,
+            'source'   => $this->source,
+            'position' => $this->position,
         ];
     }
 }

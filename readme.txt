@@ -4,7 +4,7 @@ Tags: woocommerce, product tabs, custom tabs, product page, tabs
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.1.8
+Stable tag: 1.2.0
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -17,7 +17,7 @@ Tabvera lets you add your own reusable tabs to the WooCommerce single product pa
 
 Define your tabs once under **WooCommerce > Tabvera Tabs** and they show up on every product. It suits content you'd otherwise paste into each product by hand: shipping and returns, size guides, care instructions, warranty notes.
 
-Each tab is a title plus a content box that accepts the same limited HTML WordPress allows in posts (links, lists, bold, headings) via `wp_kses_post`. Your tabs render after the native WooCommerce tabs, and you can toggle each one on or off without deleting it.
+Each tab is a title plus a content box that accepts the same limited HTML WordPress allows in posts (links, lists, bold, headings) via `wp_kses_post`. Each tab has a position among the native WooCommerce tabs (first, after the description, before the reviews, or after the reviews, the default), and you can toggle each one on or off without deleting it.
 
 The code lives at [github.com/wppoland/tabvera](https://github.com/wppoland/tabvera) if you want to read it, report a bug or suggest a tab feature.
 
@@ -82,7 +82,7 @@ The same safe subset WordPress allows in post content (`wp_kses_post`): links, l
 
 = Where do the custom tabs appear? =
 
-On the single product page tab list, after the native WooCommerce tabs (Description, Additional information, Reviews).
+On the single product page tab list, at the position set on each tab: first, after Description, before Reviews, or after Reviews (the default). Tabs with the same position keep the order of the settings screen.
 
 = Can I reuse the same tab on many products? =
 
@@ -111,6 +111,11 @@ Tabvera does not connect to any external services. It makes no remote API calls,
 Tabvera is fully translatable and ships the `tabvera.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.2.0 =
+* New: a Position setting per tab: first, after the description, before the reviews, or after the reviews. Existing tabs stay after the reviews.
+* Changed: renaming a tab keeps its internal id, so add-on data stored for the tab (category rules, per-product content) stays with it.
+* Fixed: a tab holding only an image, video or audio no longer opens onto an empty panel.
 
 = 1.1.8 =
 * Fixed: deleting the plugin on a multisite network now removes its settings from every site, not only the main one.
