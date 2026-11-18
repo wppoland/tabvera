@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tabby\Admin;
 
 use Tabby\Contract\HasHooks;
+use Tabby\Domain\Tab;
 use Tabby\Domain\TabRepository;
 
 defined('ABSPATH') || exit;
@@ -117,7 +118,7 @@ final class Settings implements HasHooks
                 </span>
                 <div class="tabby-admin__intro-text">
                     <h2><?php esc_html_e('Reusable tabs for every product page', 'tabvera'); ?></h2>
-                    <p><?php esc_html_e('Define tabs once and they appear on all single product pages, after the native WooCommerce tabs. Basic HTML is allowed in tab content.', 'tabvera'); ?></p>
+                    <p><?php esc_html_e('Define tabs once and they appear on all single product pages, at the position you pick for each tab. Basic HTML is allowed in tab content.', 'tabvera'); ?></p>
                 </div>
             </div>
 
@@ -175,7 +176,7 @@ final class Settings implements HasHooks
                 <div class="tabby-admin__section">
                     <h2><?php esc_html_e('Tabs', 'tabvera'); ?></h2>
                     <p class="tabby-admin__section-intro">
-                        <?php esc_html_e('Each tab shows on every product page, below the native WooCommerce tabs, in the order listed here. A row with no title is dropped when you save, so leave a blank row to discard it.', 'tabvera'); ?>
+                        <?php esc_html_e('Each tab shows on every product page at its position (after reviews unless you pick another). Tabs with the same position keep the order listed here. A row with no title is dropped when you save, so leave a blank row to discard it.', 'tabvera'); ?>
                         <?php // Say it here, because a title-only row is saved and then never seen: the shopper only gets a tab when there is something in it. ?>
                         <?php esc_html_e('A tab with an empty content box is kept for later but stays off the storefront, since an empty tab has nothing to show.', 'tabvera'); ?>
                     </p>
@@ -187,7 +188,7 @@ final class Settings implements HasHooks
                                 $this->renderGlobalRow(0, '', '', true, $richContent);
                             } else {
                                 foreach (array_values($globalTabs) as $index => $tab) {
-                                    $this->renderGlobalRow((int) $index, $tab->title, $tab->content, $tab->enabled, $richContent);
+                                    $this->renderGlobalRow((int) $index, $tab->title, $tab->content, $tab->enabled, $richContent, false, $tab->id, $tab->position);
                                 }
                             }
                             ?>
@@ -244,12 +245,14 @@ final class Settings implements HasHooks
     /**
      * Render a single global-tab repeater row.
      */
-    private function renderGlobalRow(int $index, string $title, string $content, bool $enabled, bool $richContent = false, bool $isTemplate = false): void
+    private function renderGlobalRow(int $index, string $title, string $content, bool $enabled, bool $richContent = false, bool $isTemplate = false, string $id = '', string $position = Tab::POSITION_AFTER_REVIEWS): void
     {
         $i = $isTemplate ? '__index__' : (string) $index;
         $base = self::OPTION . '[global_tabs][' . $i . ']';
         ?>
         <div class="tabby-repeater__row" data-tabby-row>
+            <?php // The id is generated once and kept, so renaming a tab keeps whatever is keyed by it. ?>
+            <input type="hidden" name="<?php echo esc_attr($base . '[id]'); ?>" value="<?php echo esc_attr($id); ?>" />
             <div class="tabby-repeater__head">
                 <label class="tabby-repeater__field tabby-repeater__field--title">
                     <span class="tabby-repeater__label"><?php esc_html_e('Tab title', 'tabvera'); ?></span>
@@ -260,6 +263,14 @@ final class Settings implements HasHooks
                         class="widefat"
                         placeholder="<?php esc_attr_e('e.g. Shipping & Returns', 'tabvera'); ?>"
                     />
+                </label>
+                <label class="tabby-repeater__field tabby-repeater__field--position">
+                    <span class="tabby-repeater__label"><?php esc_html_e('Position', 'tabvera'); ?></span>
+                    <select name="<?php echo esc_attr($base . '[position]'); ?>">
+                        <?php foreach (Tab::positions() as $value => $label) : ?>
+                            <option value="<?php echo esc_attr($value); ?>" <?php selected($position, $value); ?>><?php echo esc_html($label); ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </label>
                 <label class="tabby-repeater__toggle">
                     <input
@@ -329,59 +340,72 @@ final class Settings implements HasHooks
 
         $globalTabs = [];
         if (isset($raw['global_tabs']) && is_array($raw['global_tabs'])) {
-            $position = 0;
             foreach ($raw['global_tabs'] as $entry) {
                 if (! is_array($entry)) {
                     continue;
                 }
-                $title = isset($entry['title']) ? sanitize_text_field((string) $entry['title']) : '';
+                $title = isset($entry['title']) && is_scalar($entry['title']) ? sanitize_text_field((string) $entry['title']) : '';
                 if ('' === $title) {
                     continue;
                 }
                 $globalTabs[] = [
-                    'id'      => $this->uniqueSlug($title, $position, $globalTabs),
-                    'title'   => $title,
-                    'content' => isset($entry['content']) ? wp_kses_post((string) $entry['content']) : '',
-                    'enabled' => ! empty($entry['enabled']),
+                    'id'       => isset($entry['id']) && is_scalar($entry['id']) ? sanitize_key((string) $entry['id']) : '',
+                    'title'    => $title,
+                    'content'  => isset($entry['content']) && is_scalar($entry['content']) ? wp_kses_post((string) $entry['content']) : '',
+                    'enabled'  => ! empty($entry['enabled']),
+                    'position' => Tab::normalisePosition($entry['position'] ?? null),
                 ];
-                ++$position;
             }
         }
 
         return array_merge($defaults, [
             'enabled'     => ! empty($raw['enabled']),
             'rich_content' => ! empty($raw['rich_content']),
-            'global_tabs' => $globalTabs,
+            'global_tabs' => self::assignIds($globalTabs),
         ]);
     }
 
     /**
-     * Build a slug for a global tab, ensuring it does not collide with earlier
-     * tabs in the same save.
+     * Give every tab a stable id. An id the row already carries is kept, so a
+     * rename no longer moves the tab to a new id and orphans what add-ons key
+     * by it (category rules, per-product content). Before 1.2.0 the id was
+     * rebuilt from the title on every save; the form now posts the stored id
+     * back, so existing tabs keep the id they have. Only a new row, or a row
+     * whose id another row already claimed, gets one built from its title.
      *
-     * @param array<int, array<string, mixed>> $existing
+     * @param array<int, array<string, mixed>> $tabs
+     * @return array<int, array<string, mixed>>
      */
-    private function uniqueSlug(string $title, int $position, array $existing): string
+    public static function assignIds(array $tabs): array
     {
-        $base = sanitize_key($title);
-        if ('' === $base) {
-            $base = 'tab_' . $position;
-        }
-
         $used = [];
-        foreach ($existing as $tab) {
-            if (isset($tab['id'])) {
-                $used[] = (string) $tab['id'];
+        foreach ($tabs as $i => $tab) {
+            $id = (string) ($tab['id'] ?? '');
+            if ('' !== $id && ! isset($used[$id])) {
+                $used[$id] = true;
+            } else {
+                $tabs[$i]['id'] = '';
             }
         }
 
-        $slug = $base;
-        $n    = 1;
-        while (in_array($slug, $used, true)) {
-            $slug = $base . '_' . $n;
-            ++$n;
+        foreach ($tabs as $i => $tab) {
+            if ('' !== $tab['id']) {
+                continue;
+            }
+            $base = sanitize_key((string) ($tab['title'] ?? ''));
+            if ('' === $base) {
+                $base = 'tab_' . $i;
+            }
+            $id = $base;
+            $n  = 1;
+            while (isset($used[$id])) {
+                $id = $base . '_' . $n;
+                ++$n;
+            }
+            $used[$id]      = true;
+            $tabs[$i]['id'] = $id;
         }
 
-        return $slug;
+        return $tabs;
     }
 }

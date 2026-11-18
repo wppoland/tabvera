@@ -14,8 +14,9 @@ defined('ABSPATH') || exit;
  * Injects Tabby's custom tabs into the single product page via the
  * `woocommerce_product_tabs` filter.
  *
- * Tabs are the enabled global tabs from {@see TabRepository}, appended after the
- * native WooCommerce tabs. Empty/disabled states render nothing.
+ * Tabs are the enabled global tabs from {@see TabRepository}, each placed at its
+ * own position among the native WooCommerce tabs (after reviews by default).
+ * Empty/disabled states render nothing.
  */
 final class TabsRenderer implements HasHooks
 {
@@ -69,10 +70,8 @@ final class TabsRenderer implements HasHooks
         }
 
         $this->current = [];
-
-        // Native WooCommerce tabs use priorities 10/20/30, so 100+ trails them.
-        $priority = 100;
-        $seen     = [];
+        $seen          = [];
+        $placed        = [];
 
         foreach ($resolved as $tab) {
             // A tab with an empty content box used to be registered anyway: the
@@ -92,17 +91,117 @@ final class TabsRenderer implements HasHooks
             }
             $seen[$key]          = true;
             $this->current[$key] = $tab;
+            $placed[$key]        = $tab->position;
+        }
 
+        foreach (self::priorities($tabs, $placed) as $key => $priority) {
             $tabs[$key] = [
-                'title'    => $tab->title,
+                'title'    => $this->current[$key]->title,
                 'priority' => $priority,
                 'callback' => [$this, 'renderPanel'],
             ];
-
-            ++$priority;
         }
 
         return $tabs;
+    }
+
+    /**
+     * Priorities for our tabs, read against the strip as it stands when this
+     * filter runs (98, just before WooCommerce sorts at 99), so a theme that
+     * moved or dropped a native tab still gets the placement the merchant
+     * picked. Core uses description 10, additional information 20, reviews 30;
+     * those numbers are only the fallback when the tab is missing.
+     *
+     * Tabs in one position keep their resolved order, and the positions keep
+     * their own order (first, after description, before reviews) when they
+     * share a gap. After reviews is 100, 101, ... as before 1.2.0.
+     *
+     * @param array<string, mixed>  $strip  Tabs already on the strip.
+     * @param array<string, string> $placed Our tab keys => position, in resolved order.
+     * @return array<string, int|float>
+     */
+    public static function priorities(array $strip, array $placed): array
+    {
+        $taken = [];
+        foreach ($strip as $key => $tab) {
+            if (is_array($tab) && isset($tab['priority']) && is_numeric($tab['priority'])) {
+                $taken[(string) $key] = (float) $tab['priority'];
+            }
+        }
+
+        $groups = [
+            Tab::POSITION_FIRST             => [],
+            Tab::POSITION_AFTER_DESCRIPTION => [],
+            Tab::POSITION_BEFORE_REVIEWS    => [],
+            Tab::POSITION_AFTER_REVIEWS     => [],
+        ];
+        foreach ($placed as $key => $position) {
+            $groups[Tab::normalisePosition($position)][] = (string) $key;
+        }
+
+        $out   = [];
+        $floor = null;
+
+        foreach ($groups as $position => $keys) {
+            if ([] === $keys) {
+                continue;
+            }
+
+            if (Tab::POSITION_AFTER_REVIEWS === $position) {
+                foreach ($keys as $i => $key) {
+                    $out[$key] = 100 + $i;
+                }
+                continue;
+            }
+
+            if (Tab::POSITION_FIRST === $position) {
+                $high = [] === $taken ? 10.0 : min($taken);
+                $low  = $high - 10;
+            } elseif (Tab::POSITION_AFTER_DESCRIPTION === $position) {
+                $low = $taken['description'] ?? 10.0;
+                if (null !== $floor && $floor > $low) {
+                    $low = $floor;
+                }
+                $high = self::nextAbove($taken, $low) ?? $low + 10;
+            } else {
+                $high = $taken['reviews'] ?? 30.0;
+                $low  = self::nextBelow($taken, $high) ?? $high - 10;
+                if (null !== $floor && $floor > $low && $floor < $high) {
+                    $low = $floor;
+                }
+            }
+
+            $count = count($keys);
+            foreach ($keys as $i => $key) {
+                $value       = $low + ($high - $low) * ($i + 1) / ($count + 1);
+                $value       = round($value, 6);
+                $out[$key]   = floor($value) === $value ? (int) $value : $value;
+                $taken[$key] = $value;
+                $floor       = $value;
+            }
+        }
+
+        return $out;
+    }
+
+    /**
+     * @param array<string, float> $taken
+     */
+    private static function nextAbove(array $taken, float $value): ?float
+    {
+        $above = array_filter($taken, static fn (float $p): bool => $p > $value);
+
+        return [] === $above ? null : min($above);
+    }
+
+    /**
+     * @param array<string, float> $taken
+     */
+    private static function nextBelow(array $taken, float $value): ?float
+    {
+        $below = array_filter($taken, static fn (float $p): bool => $p < $value);
+
+        return [] === $below ? null : max($below);
     }
 
     /**
