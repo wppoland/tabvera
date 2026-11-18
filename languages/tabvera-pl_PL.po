@@ -19,7 +19,7 @@ msgstr ""
 #. Plugin Name of the plugin
 #: tabvera.php
 msgid "Tabvera - Product Tabs for WooCommerce"
-msgstr "Tabvera - zakładki produktu dla WooCommerce"
+msgstr "Tabvera - Product Tabs for WooCommerce"
 
 #. Plugin URI of the plugin
 #: tabvera.php
@@ -30,7 +30,7 @@ msgstr "https://plogins.com/tabvera/"
 #: tabvera.php
 msgid "Add custom tabs with your own content to WooCommerce product pages."
 msgstr ""
-"Dodawaj własne zakładki z własną treścią do stron produktów WooCommerce."
+"Dodaje do stron produktów WooCommerce własne zakładki z dowolną treścią."
 
 #. Author of the plugin
 #: tabvera.php
@@ -68,7 +68,7 @@ msgstr "Brak uprawnień."
 #: src/Admin/ProUpsell.php:161
 #, php-format
 msgid "Do more with %s"
-msgstr "Zrób więcej dzięki %s"
+msgstr "Zyskaj więcej dzięki %s"
 
 #: src/Admin/ProUpsell.php:168
 msgid "Dismiss this notice"
@@ -90,7 +90,7 @@ msgstr "Co dodaje %s"
 
 #: src/Admin/Settings.php:65
 msgid "Tabvera - Product Tabs"
-msgstr "Tabvera - zakładki produktu"
+msgstr "Tabvera - Product Tabs"
 
 #: src/Admin/Settings.php:66
 msgid "Tabvera Tabs"
@@ -119,24 +119,24 @@ msgstr "Włącz Tabvera"
 
 #: src/Admin/Settings.php:137
 msgid "Render custom tabs on single product pages."
-msgstr "Renderuj własne zakładki na stronach pojedynczych produktów."
+msgstr "Wyświetlaj własne zakładki na stronach pojedynczych produktów."
 
 #: src/Admin/Settings.php:140
 msgid ""
 "Master switch. Turn this off to hide every tab below at once without "
 "deleting them, your tabs stay saved and reappear when you turn it back on."
 msgstr ""
-"Przełącznik główny. Wyłącz tę opcję, aby ukryć wszystkie karty poniżej "
-"jednocześnie bez ich usuwania. Twoje karty pozostaną zapisane i pojawią się "
-"ponownie po ponownym włączeniu."
+"Główny przełącznik. Wyłącz go, aby jednocześnie ukryć wszystkie zakładki "
+"poniżej bez ich usuwania. Zakładki pozostaną zapisane i pojawią się ponownie"
+" po ponownym włączeniu."
 
 #: src/Admin/Settings.php:145
 msgid "Shortcodes and blocks in tabs"
-msgstr "Krótkie kody i bloki w zakładkach"
+msgstr "Shortcody i bloki w zakładkach"
 
 #: src/Admin/Settings.php:157
 msgid "Run tab content through the normal WordPress content filters."
-msgstr "Przepuszczaj treść zakładek przez zwykłe filtry treści WordPressa."
+msgstr "Przetwarzaj treść zakładek standardowymi filtrami treści WordPressa."
 
 #: src/Admin/Settings.php:160
 msgid ""
@@ -144,18 +144,17 @@ msgid ""
 "wider surface than the safe-HTML pass used otherwise. Only the tabs you "
 "wrote yourself are affected."
 msgstr ""
-"Pozwala treści zakładki korzystać z krótkich kodów i bloków. Domyślnie "
-"wyłączone, bo to szersza powierzchnia niż bezpieczne przetwarzanie HTML "
-"stosowane w przeciwnym razie. Dotyczy tylko zakładek napisanych przez "
-"Ciebie."
+"Pozwala używać shortcodów i bloków w treści zakładki. Domyślnie wyłączone, "
+"ponieważ daje szersze możliwości niż standardowe przetwarzanie z bezpiecznym"
+" kodem HTML. Dotyczy tylko zakładek utworzonych samodzielnie."
 
 #: src/Admin/Settings.php:161
 msgid ""
 "It applies to every tab below, not to one of them, so each tab says which "
 "pass it gets."
 msgstr ""
-"Dotyczy każdej zakładki poniżej, a nie jednej z nich, dlatego każda zakładka"
-" informuje, jakie przetwarzanie otrzymuje."
+"Ustawienie dotyczy wszystkich zakładek poniżej, a nie jednej z nich, dlatego"
+" przy każdej zakładce widać, w jaki sposób jest przetwarzana."
 
 #: src/Admin/Settings.php:170
 msgid "Tabs"
@@ -198,7 +197,7 @@ msgstr "Włączona"
 
 #: src/Admin/Settings.php:238
 msgid "shows this tab on the storefront; uncheck to hide just this one"
-msgstr "pokazuje tę zakładkę na stronie sklepu; odznacz, aby ukryć tylko ten"
+msgstr "wyświetla tę zakładkę w sklepie; odznacz, aby ukryć tylko tę jedną"
 
 #: src/Admin/Settings.php:242
 msgid "Remove this tab"
@@ -210,11 +209,12 @@ msgstr "Treść zakładki"
 
 #: src/Admin/Settings.php:258
 msgid "shortcodes and blocks run here"
-msgstr "krótkie kody i bloki działają tutaj"
+msgstr "tutaj działają shortcody i bloki"
 
 #: src/Admin/Settings.php:265
 msgid "Basic HTML is allowed (links, lists, bold, etc.)."
-msgstr "Dozwolony jest podstawowy kod HTML (linki, listy, pogrubienie itp.)."
+msgstr ""
+"Dozwolony jest podstawowy kod HTML (odnośniki, listy, pogrubienie itp.)."
 
 #. translators: %s: an example HTML snippet shown as inline guidance.
 #: src/Admin/Settings.php:271
@@ -222,14 +222,14 @@ msgstr "Dozwolony jest podstawowy kod HTML (linki, listy, pogrubienie itp.)."
 msgid ""
 "Same HTML as a post, e.g. %s. Scripts and unsafe tags are stripped on save."
 msgstr ""
-"Ten sam kod HTML co post, np. %s. Skrypty i niebezpieczne tagi są usuwane "
-"podczas zapisywania."
+"Ten sam kod HTML co we wpisie, np. %s. Skrypty i niebezpieczne znaczniki są "
+"usuwane podczas zapisywania."
 
 #: tabvera.php:48
 msgid ""
 "Tabvera - Product Tabs for WooCommerce requires WooCommerce to be active."
 msgstr ""
-"Tabvera - zakładki produktu dla WooCommerce wymaga aktywnego WooCommerce."
+"Tabvera - Product Tabs for WooCommerce wymaga aktywnej wtyczki WooCommerce."
 
 #~ msgid "Wkrótce"
 #~ msgstr "Wkrótce"
