@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tabby - Custom Product Tabs for WooCommerce 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/tabvera\n"
-"POT-Creation-Date: 2026-10-05T11:15:20+00:00\n"
+"POT-Creation-Date: 2026-11-18T06:30:05+00:00\n"
 "PO-Revision-Date: 2026-06-15 12:00+0000\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -12,7 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
+"|| n%100>14) ? 1 : 2);\n"
 "X-Domain: tabvera\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -42,136 +43,137 @@ msgstr "WPPoland.com"
 msgid "https://wppoland.com"
 msgstr "https://wppoland.com"
 
-#: src/Admin/ProUpsell.php:85
+#: src/Admin/ProUpsell.php:110
 msgid "Coming soon"
 msgstr "Wkrótce"
 
 #. translators: 1: currency symbol, 2: yearly price
-#: src/Admin/ProUpsell.php:91
+#: src/Admin/ProUpsell.php:116
 #, php-format
 msgid "from %1$s%2$d/yr"
 msgstr "od %1$s%2$d/rok"
 
-#: src/Admin/ProUpsell.php:100
+#: src/Admin/ProUpsell.php:125
 msgid "Upgrade to PRO"
 msgstr "Przejdź na PRO"
 
-#: src/Admin/ProUpsell.php:101
+#: src/Admin/ProUpsell.php:126
 msgid "Get notified"
 msgstr "Powiadom mnie"
 
-#: src/Admin/ProUpsell.php:131
+#: src/Admin/ProUpsell.php:156
 msgid "Permission denied."
 msgstr "Brak uprawnień."
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:161
+#: src/Admin/ProUpsell.php:186
 #, php-format
 msgid "Do more with %s"
 msgstr "Zyskaj więcej dzięki %s"
 
-#: src/Admin/ProUpsell.php:168
+#: src/Admin/ProUpsell.php:193
 msgid "Dismiss this notice"
 msgstr "Odrzuć to powiadomienie"
 
-#: src/Admin/ProUpsell.php:190
+#: src/Admin/ProUpsell.php:215
 msgid "Unlock every PRO feature"
 msgstr "Odblokuj wszystkie funkcje PRO"
 
-#: src/Admin/ProUpsell.php:203
+#: src/Admin/ProUpsell.php:228
 msgid "one licence, every PRO feature"
 msgstr "jedna licencja, wszystkie funkcje PRO"
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:222
+#: src/Admin/ProUpsell.php:247
 #, php-format
 msgid "What %s adds"
 msgstr "Co dodaje %s"
 
-#: src/Admin/Settings.php:65
+#: src/Admin/Settings.php:66
 msgid "Tabvera - Product Tabs"
 msgstr "Tabvera - Product Tabs"
 
-#: src/Admin/Settings.php:66
+#: src/Admin/Settings.php:67
 msgid "Tabvera Tabs"
 msgstr "Zakładki Tabvera"
 
-#: src/Admin/Settings.php:113
+#: src/Admin/Settings.php:120
 msgid "Reusable tabs for every product page"
 msgstr "Zakładki wielokrotnego użytku dla każdej strony produktu"
 
-#: src/Admin/Settings.php:114
+#: src/Admin/Settings.php:121
 msgid ""
-"Define tabs once and they appear on all single product pages, after the "
-"native WooCommerce tabs. Basic HTML is allowed in tab content."
+"Define tabs once and they appear on all single product pages, at the "
+"position you pick for each tab. Basic HTML is allowed in tab content."
 msgstr ""
-"Zdefiniuj zakładki raz, a pojawią się na wszystkich stronach pojedynczych "
-"produktów, za natywnymi zakładkami WooCommerce. W treści zakładek dozwolony "
-"jest podstawowy kod HTML."
+"Zdefiniuj zakładki raz, a pojawią się na wszystkich stronach produktów, w "
+"miejscu wybranym dla każdej z nich. W treści zakładek dozwolony jest "
+"podstawowy kod HTML."
 
-#: src/Admin/Settings.php:122
+#: src/Admin/Settings.php:129
 msgid "General"
 msgstr "Ogólne"
 
-#: src/Admin/Settings.php:126
+#: src/Admin/Settings.php:133
 msgid "Enable Tabvera"
 msgstr "Włącz Tabvera"
 
-#: src/Admin/Settings.php:137
+#: src/Admin/Settings.php:144
 msgid "Render custom tabs on single product pages."
 msgstr "Wyświetlaj własne zakładki na stronach pojedynczych produktów."
 
-#: src/Admin/Settings.php:140
+#: src/Admin/Settings.php:147
 msgid ""
 "Master switch. Turn this off to hide every tab below at once without "
 "deleting them, your tabs stay saved and reappear when you turn it back on."
 msgstr ""
 "Główny przełącznik. Wyłącz go, aby jednocześnie ukryć wszystkie zakładki "
-"poniżej bez ich usuwania. Zakładki pozostaną zapisane i pojawią się ponownie"
-" po ponownym włączeniu."
+"poniżej bez ich usuwania. Zakładki pozostaną zapisane i pojawią się ponownie "
+"po ponownym włączeniu."
 
-#: src/Admin/Settings.php:145
+#: src/Admin/Settings.php:152
 msgid "Shortcodes and blocks in tabs"
 msgstr "Shortcody i bloki w zakładkach"
 
-#: src/Admin/Settings.php:157
+#: src/Admin/Settings.php:164
 msgid "Run tab content through the normal WordPress content filters."
 msgstr "Przetwarzaj treść zakładek standardowymi filtrami treści WordPressa."
 
-#: src/Admin/Settings.php:160
+#: src/Admin/Settings.php:167
 msgid ""
 "Lets a tab body use shortcodes and blocks. Off by default, because it is a "
 "wider surface than the safe-HTML pass used otherwise. Only the tabs you "
 "wrote yourself are affected."
 msgstr ""
 "Pozwala używać shortcodów i bloków w treści zakładki. Domyślnie wyłączone, "
-"ponieważ daje szersze możliwości niż standardowe przetwarzanie z bezpiecznym"
-" kodem HTML. Dotyczy tylko zakładek utworzonych samodzielnie."
+"ponieważ daje szersze możliwości niż standardowe przetwarzanie z bezpiecznym "
+"kodem HTML. Dotyczy tylko zakładek utworzonych samodzielnie."
 
-#: src/Admin/Settings.php:161
+#: src/Admin/Settings.php:168
 msgid ""
 "It applies to every tab below, not to one of them, so each tab says which "
 "pass it gets."
 msgstr ""
-"Ustawienie dotyczy wszystkich zakładek poniżej, a nie jednej z nich, dlatego"
-" przy każdej zakładce widać, w jaki sposób jest przetwarzana."
+"Ustawienie dotyczy wszystkich zakładek poniżej, a nie jednej z nich, dlatego "
+"przy każdej zakładce widać, w jaki sposób jest przetwarzana."
 
-#: src/Admin/Settings.php:170
+#: src/Admin/Settings.php:177
 msgid "Tabs"
 msgstr "Zakładki"
 
-#: src/Admin/Settings.php:172
+#: src/Admin/Settings.php:179
 msgid ""
-"Each tab shows on every product page, below the native WooCommerce tabs, in "
-"the order listed here. A row with no title is dropped when you save, so "
-"leave a blank row to discard it."
+"Each tab shows on every product page at its position (after reviews unless "
+"you pick another). Tabs with the same position keep the order listed here. A "
+"row with no title is dropped when you save, so leave a blank row to discard "
+"it."
 msgstr ""
-"Każda zakładka jest wyświetlana na każdej stronie produktu, poniżej "
-"natywnych zakładek WooCommerce, w podanej tutaj kolejności. Wiersz bez "
-"tytułu jest usuwany podczas zapisywania, więc pozostaw pusty wiersz, aby go "
-"odrzucić."
+"Każda zakładka wyświetla się na każdej stronie produktu w swojej pozycji (po "
+"opiniach, chyba że wybierzesz inną). Zakładki o tej samej pozycji zachowują "
+"kolejność z tej listy. Wiersz bez tytułu jest usuwany przy zapisie, więc "
+"zostaw go pustym, aby go odrzucić."
 
-#: src/Admin/Settings.php:174
+#: src/Admin/Settings.php:181
 msgid ""
 "A tab with an empty content box is kept for later but stays off the "
 "storefront, since an empty tab has nothing to show."
@@ -179,45 +181,76 @@ msgstr ""
 "Zakładka z pustym polem treści zostaje zapisana na później, ale nie pojawia "
 "się w sklepie, ponieważ pusta zakładka nie ma nic do pokazania."
 
-#: src/Admin/Settings.php:196
+#: src/Admin/Settings.php:203
 msgid "Add tab"
 msgstr "Dodaj zakładkę"
 
-#: src/Admin/Settings.php:221
+#: src/Admin/Settings.php:210
+msgid "Ecosystem integrations"
+msgstr "Integracje z innymi wtyczkami"
+
+#: src/Admin/Settings.php:214
+msgid "Respondo (Product FAQs)"
+msgstr "Respondo (FAQ produktu)"
+
+#: src/Admin/Settings.php:218
+msgid ""
+"Respondo is active. Product FAQs appear in an accessible accordion tab "
+"alongside your custom tabs."
+msgstr ""
+"Respondo jest aktywny. FAQ produktu wyświetla się w dostępnej zakładce z "
+"akordeonem obok Twoich własnych zakładek."
+
+#. translators: %s: partner plugin name, linked to its search on the Add
+#. Plugins screen.
+#: src/Admin/Settings.php:225
+#, php-format
+msgid ""
+"Install %s to add per-product FAQs as an accessible accordion tab to reduce "
+"pre-sale customer questions."
+msgstr ""
+"Zainstaluj %s, aby dodać do każdego produktu FAQ w dostępnej zakładce z "
+"akordeonem i ograniczyć pytania klientów przed zakupem."
+
+#: src/Admin/Settings.php:258
 msgid "Tab title"
 msgstr "Tytuł zakładki"
 
-#: src/Admin/Settings.php:227
+#: src/Admin/Settings.php:264
 msgid "e.g. Shipping & Returns"
 msgstr "np. Wysyłka i zwroty"
 
-#: src/Admin/Settings.php:237
+#: src/Admin/Settings.php:268
+msgid "Position"
+msgstr "Pozycja"
+
+#: src/Admin/Settings.php:282
 msgid "Enabled"
 msgstr "Włączona"
 
-#: src/Admin/Settings.php:238
+#: src/Admin/Settings.php:283
 msgid "shows this tab on the storefront; uncheck to hide just this one"
 msgstr "wyświetla tę zakładkę w sklepie; odznacz, aby ukryć tylko tę jedną"
 
-#: src/Admin/Settings.php:242
+#: src/Admin/Settings.php:287
 msgid "Remove this tab"
 msgstr "Usuń tę zakładkę"
 
-#: src/Admin/Settings.php:247
+#: src/Admin/Settings.php:292
 msgid "Tab content"
 msgstr "Treść zakładki"
 
-#: src/Admin/Settings.php:258
+#: src/Admin/Settings.php:303
 msgid "shortcodes and blocks run here"
 msgstr "tutaj działają shortcody i bloki"
 
-#: src/Admin/Settings.php:265
+#: src/Admin/Settings.php:310
 msgid "Basic HTML is allowed (links, lists, bold, etc.)."
 msgstr ""
 "Dozwolony jest podstawowy kod HTML (odnośniki, listy, pogrubienie itp.)."
 
 #. translators: %s: an example HTML snippet shown as inline guidance.
-#: src/Admin/Settings.php:271
+#: src/Admin/Settings.php:316
 #, php-format
 msgid ""
 "Same HTML as a post, e.g. %s. Scripts and unsafe tags are stripped on save."
@@ -225,11 +258,45 @@ msgstr ""
 "Ten sam kod HTML co we wpisie, np. %s. Skrypty i niebezpieczne znaczniki są "
 "usuwane podczas zapisywania."
 
+#: src/Domain/Tab.php:61
+msgid "First"
+msgstr "Na początku"
+
+#: src/Domain/Tab.php:62
+msgid "After description"
+msgstr "Po opisie"
+
+#: src/Domain/Tab.php:63
+msgid "Before reviews"
+msgstr "Przed opiniami"
+
+#: src/Domain/Tab.php:64
+msgid "After reviews"
+msgstr "Po opiniach"
+
 #: tabvera.php:48
 msgid ""
 "Tabvera - Product Tabs for WooCommerce requires WooCommerce to be active."
 msgstr ""
 "Tabvera - Product Tabs for WooCommerce wymaga aktywnej wtyczki WooCommerce."
+
+#~ msgid ""
+#~ "Define tabs once and they appear on all single product pages, after the "
+#~ "native WooCommerce tabs. Basic HTML is allowed in tab content."
+#~ msgstr ""
+#~ "Zdefiniuj zakładki raz, a pojawią się na wszystkich stronach pojedynczych "
+#~ "produktów, za natywnymi zakładkami WooCommerce. W treści zakładek "
+#~ "dozwolony jest podstawowy kod HTML."
+
+#~ msgid ""
+#~ "Each tab shows on every product page, below the native WooCommerce tabs, "
+#~ "in the order listed here. A row with no title is dropped when you save, "
+#~ "so leave a blank row to discard it."
+#~ msgstr ""
+#~ "Każda zakładka jest wyświetlana na każdej stronie produktu, poniżej "
+#~ "natywnych zakładek WooCommerce, w podanej tutaj kolejności. Wiersz bez "
+#~ "tytułu jest usuwany podczas zapisywania, więc pozostaw pusty wiersz, aby "
+#~ "go odrzucić."
 
 #~ msgid "Wkrótce"
 #~ msgstr "Wkrótce"
@@ -271,4 +338,5 @@ msgstr ""
 
 #~ msgid "These tabs appear on every product, in the order listed here."
 #~ msgstr ""
-#~ "Te zakładki pojawiają się przy każdym produkcie, w kolejności podanej tutaj."
+#~ "Te zakładki pojawiają się przy każdym produkcie, w kolejności podanej "
+#~ "tutaj."

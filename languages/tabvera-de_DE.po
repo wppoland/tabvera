@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tabby - Custom Product Tabs for WooCommerce 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/tabvera\n"
-"POT-Creation-Date: 2026-10-05T11:15:20+00:00\n"
+"POT-Creation-Date: 2026-11-18T06:30:05+00:00\n"
 "PO-Revision-Date: 2026-06-16T20:23:22+00:00\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
@@ -43,87 +43,87 @@ msgstr "WPPoland.com"
 msgid "https://wppoland.com"
 msgstr "https://wppoland.com"
 
-#: src/Admin/ProUpsell.php:85
+#: src/Admin/ProUpsell.php:110
 msgid "Coming soon"
 msgstr "Demnächst"
 
 #. translators: 1: currency symbol, 2: yearly price
-#: src/Admin/ProUpsell.php:91
+#: src/Admin/ProUpsell.php:116
 #, php-format
 msgid "from %1$s%2$d/yr"
 msgstr "ab %1$s%2$d/Jahr"
 
-#: src/Admin/ProUpsell.php:100
+#: src/Admin/ProUpsell.php:125
 msgid "Upgrade to PRO"
 msgstr "Auf PRO upgraden"
 
-#: src/Admin/ProUpsell.php:101
+#: src/Admin/ProUpsell.php:126
 msgid "Get notified"
 msgstr "Benachrichtige mich"
 
-#: src/Admin/ProUpsell.php:131
+#: src/Admin/ProUpsell.php:156
 msgid "Permission denied."
 msgstr "Zugriff verweigert."
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:161
+#: src/Admin/ProUpsell.php:186
 #, php-format
 msgid "Do more with %s"
 msgstr "Mehr erreichen mit %s"
 
-#: src/Admin/ProUpsell.php:168
+#: src/Admin/ProUpsell.php:193
 msgid "Dismiss this notice"
 msgstr "Diesen Hinweis ausblenden"
 
-#: src/Admin/ProUpsell.php:190
+#: src/Admin/ProUpsell.php:215
 msgid "Unlock every PRO feature"
 msgstr "Alle PRO-Funktionen freischalten"
 
-#: src/Admin/ProUpsell.php:203
+#: src/Admin/ProUpsell.php:228
 msgid "one licence, every PRO feature"
 msgstr "eine Lizenz, alle PRO-Funktionen"
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:222
+#: src/Admin/ProUpsell.php:247
 #, php-format
 msgid "What %s adds"
 msgstr "Was %s ergänzt"
 
-#: src/Admin/Settings.php:65
+#: src/Admin/Settings.php:66
 msgid "Tabvera - Product Tabs"
 msgstr "Tabvera - Produkt-Tabs"
 
-#: src/Admin/Settings.php:66
+#: src/Admin/Settings.php:67
 msgid "Tabvera Tabs"
 msgstr "Tabvera-Tabs"
 
-#: src/Admin/Settings.php:113
+#: src/Admin/Settings.php:120
 msgid "Reusable tabs for every product page"
 msgstr "Wiederverwendbare Registerkarten für jede Produktseite"
 
-#: src/Admin/Settings.php:114
+#: src/Admin/Settings.php:121
 msgid ""
-"Define tabs once and they appear on all single product pages, after the "
-"native WooCommerce tabs. Basic HTML is allowed in tab content."
+"Define tabs once and they appear on all single product pages, at the "
+"position you pick for each tab. Basic HTML is allowed in tab content."
 msgstr ""
-"Definiere Tabs einmal und sie erscheinen auf allen einzelnen Produktseiten "
-"nach den nativen WooCommerce-Tabs. Im Tab-Inhalt ist einfaches HTML "
-"zulässig."
+"Lege Registerkarten einmal an, und sie erscheinen auf allen Produktseiten an "
+"der Position, die du für jede Registerkarte wählst. Im Inhalt ist einfaches "
+"HTML erlaubt."
 
-#: src/Admin/Settings.php:122
+#: src/Admin/Settings.php:129
 msgid "General"
 msgstr "Allgemein"
 
-#: src/Admin/Settings.php:126
+#: src/Admin/Settings.php:133
 msgid "Enable Tabvera"
 msgstr "Tabvera aktivieren"
 
-#: src/Admin/Settings.php:137
+#: src/Admin/Settings.php:144
 msgid "Render custom tabs on single product pages."
 msgstr ""
 "Rendern Sie benutzerdefinierte Registerkarten auf einzelnen Produktseiten."
 
-#: src/Admin/Settings.php:140
+#: src/Admin/Settings.php:147
 msgid ""
 "Master switch. Turn this off to hide every tab below at once without "
 "deleting them, your tabs stay saved and reappear when you turn it back on."
@@ -132,15 +132,15 @@ msgstr ""
 "gleichzeitig auszublenden, ohne sie zu löschen. deine Tabs bleiben "
 "gespeichert und werden wieder angezeigt, wenn du sie wieder aktivieren."
 
-#: src/Admin/Settings.php:145
+#: src/Admin/Settings.php:152
 msgid "Shortcodes and blocks in tabs"
 msgstr "Shortcodes und Blöcke in Tabs"
 
-#: src/Admin/Settings.php:157
+#: src/Admin/Settings.php:164
 msgid "Run tab content through the normal WordPress content filters."
 msgstr "Tab-Inhalte durch die normalen WordPress-Inhaltsfilter laufen lassen."
 
-#: src/Admin/Settings.php:160
+#: src/Admin/Settings.php:167
 msgid ""
 "Lets a tab body use shortcodes and blocks. Off by default, because it is a "
 "wider surface than the safe-HTML pass used otherwise. Only the tabs you "
@@ -150,7 +150,7 @@ msgstr ""
 "eine größere Angriffsfläche ist als die sonst genutzte Prüfung auf sicheres "
 "HTML. Betroffen sind nur die Tabs, die Sie selbst geschrieben haben."
 
-#: src/Admin/Settings.php:161
+#: src/Admin/Settings.php:168
 msgid ""
 "It applies to every tab below, not to one of them, so each tab says which "
 "pass it gets."
@@ -158,22 +158,24 @@ msgstr ""
 "Es gilt für alle Tabs unten, nicht für einen einzelnen, daher zeigt jeder "
 "Tab, welche Verarbeitung er bekommt."
 
-#: src/Admin/Settings.php:170
+#: src/Admin/Settings.php:177
 msgid "Tabs"
 msgstr "Tabs"
 
-#: src/Admin/Settings.php:172
+#: src/Admin/Settings.php:179
 msgid ""
-"Each tab shows on every product page, below the native WooCommerce tabs, in "
-"the order listed here. A row with no title is dropped when you save, so "
-"leave a blank row to discard it."
+"Each tab shows on every product page at its position (after reviews unless "
+"you pick another). Tabs with the same position keep the order listed here. A "
+"row with no title is dropped when you save, so leave a blank row to discard "
+"it."
 msgstr ""
-"Jede Registerkarte wird auf jeder Produktseite unterhalb der nativen "
-"WooCommerce-Registerkarten in der hier aufgeführten Reihenfolge angezeigt. "
-"Eine Zeile ohne Titel wird beim Speichern gelöscht. Lass also eine leere "
-"Zeile, um sie zu verwerfen."
+"Jede Registerkarte erscheint auf jeder Produktseite an ihrer Position (nach "
+"den Bewertungen, sofern du keine andere wählst). Registerkarten mit "
+"derselben Position behalten die hier aufgeführte Reihenfolge. Eine Zeile "
+"ohne Titel wird beim Speichern entfernt; lass eine Zeile leer, um sie zu "
+"verwerfen."
 
-#: src/Admin/Settings.php:174
+#: src/Admin/Settings.php:181
 msgid ""
 "A tab with an empty content box is kept for later but stays off the "
 "storefront, since an empty tab has nothing to show."
@@ -182,46 +184,77 @@ msgstr ""
 "wird aber im Shop nicht angezeigt, da eine leere Registerkarte nichts zu "
 "zeigen hat."
 
-#: src/Admin/Settings.php:196
+#: src/Admin/Settings.php:203
 msgid "Add tab"
 msgstr "Registerkarte hinzufügen"
 
-#: src/Admin/Settings.php:221
+#: src/Admin/Settings.php:210
+msgid "Ecosystem integrations"
+msgstr "Integrationen mit anderen Plugins"
+
+#: src/Admin/Settings.php:214
+msgid "Respondo (Product FAQs)"
+msgstr "Respondo (Produkt-FAQ)"
+
+#: src/Admin/Settings.php:218
+msgid ""
+"Respondo is active. Product FAQs appear in an accessible accordion tab "
+"alongside your custom tabs."
+msgstr ""
+"Respondo ist aktiv. Produkt-FAQs erscheinen in einer barrierefreien "
+"Akkordeon-Registerkarte neben deinen eigenen Registerkarten."
+
+#. translators: %s: partner plugin name, linked to its search on the Add
+#. Plugins screen.
+#: src/Admin/Settings.php:225
+#, php-format
+msgid ""
+"Install %s to add per-product FAQs as an accessible accordion tab to reduce "
+"pre-sale customer questions."
+msgstr ""
+"Installiere %s, um pro Produkt FAQs als barrierefreie Akkordeon-"
+"Registerkarte hinzuzufügen und Kundenfragen vor dem Kauf zu reduzieren."
+
+#: src/Admin/Settings.php:258
 msgid "Tab title"
 msgstr "Tab-Titel"
 
-#: src/Admin/Settings.php:227
+#: src/Admin/Settings.php:264
 msgid "e.g. Shipping & Returns"
 msgstr "z.B. Versand und Rücksendungen"
 
-#: src/Admin/Settings.php:237
+#: src/Admin/Settings.php:268
+msgid "Position"
+msgstr "Position"
+
+#: src/Admin/Settings.php:282
 msgid "Enabled"
 msgstr "Aktiviert"
 
-#: src/Admin/Settings.php:238
+#: src/Admin/Settings.php:283
 msgid "shows this tab on the storefront; uncheck to hide just this one"
 msgstr ""
 "zeigt diese Registerkarte auf der Storefront an; Deaktiviere das "
 "Kontrollkästchen, um nur dieses auszublenden"
 
-#: src/Admin/Settings.php:242
+#: src/Admin/Settings.php:287
 msgid "Remove this tab"
 msgstr "Entferne diese Registerkarte"
 
-#: src/Admin/Settings.php:247
+#: src/Admin/Settings.php:292
 msgid "Tab content"
 msgstr "Tab-Inhalt"
 
-#: src/Admin/Settings.php:258
+#: src/Admin/Settings.php:303
 msgid "shortcodes and blocks run here"
 msgstr "Shortcodes und Blöcke werden hier ausgeführt"
 
-#: src/Admin/Settings.php:265
+#: src/Admin/Settings.php:310
 msgid "Basic HTML is allowed (links, lists, bold, etc.)."
 msgstr "Einfaches HTML ist zulässig (Links, Listen, Fettdruck usw.)."
 
 #. translators: %s: an example HTML snippet shown as inline guidance.
-#: src/Admin/Settings.php:271
+#: src/Admin/Settings.php:316
 #, php-format
 msgid ""
 "Same HTML as a post, e.g. %s. Scripts and unsafe tags are stripped on save."
@@ -229,11 +262,45 @@ msgstr ""
 "Gleicher HTML-Code wie ein Beitrag, z. B. %s. Skripte und unsichere Tags "
 "werden beim Speichern entfernt."
 
+#: src/Domain/Tab.php:61
+msgid "First"
+msgstr "Zuerst"
+
+#: src/Domain/Tab.php:62
+msgid "After description"
+msgstr "Nach der Beschreibung"
+
+#: src/Domain/Tab.php:63
+msgid "Before reviews"
+msgstr "Vor den Bewertungen"
+
+#: src/Domain/Tab.php:64
+msgid "After reviews"
+msgstr "Nach den Bewertungen"
+
 #: tabvera.php:48
 msgid ""
 "Tabvera - Product Tabs for WooCommerce requires WooCommerce to be active."
 msgstr ""
 "Tabvera - Produkt-Tabs für WooCommerce benötigt ein aktives WooCommerce."
+
+#~ msgid ""
+#~ "Define tabs once and they appear on all single product pages, after the "
+#~ "native WooCommerce tabs. Basic HTML is allowed in tab content."
+#~ msgstr ""
+#~ "Definiere Tabs einmal und sie erscheinen auf allen einzelnen "
+#~ "Produktseiten nach den nativen WooCommerce-Tabs. Im Tab-Inhalt ist "
+#~ "einfaches HTML zulässig."
+
+#~ msgid ""
+#~ "Each tab shows on every product page, below the native WooCommerce tabs, "
+#~ "in the order listed here. A row with no title is dropped when you save, "
+#~ "so leave a blank row to discard it."
+#~ msgstr ""
+#~ "Jede Registerkarte wird auf jeder Produktseite unterhalb der nativen "
+#~ "WooCommerce-Registerkarten in der hier aufgeführten Reihenfolge "
+#~ "angezeigt. Eine Zeile ohne Titel wird beim Speichern gelöscht. Lass also "
+#~ "eine leere Zeile, um sie zu verwerfen."
 
 #~ msgid "Wkrótce"
 #~ msgstr "Demnächst"
