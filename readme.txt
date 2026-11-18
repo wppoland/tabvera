@@ -4,7 +4,7 @@ Tags: woocommerce, product tabs, custom tabs, product page, tabs
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -49,7 +49,7 @@ Included in Tabvera:
 * Per-tab toggle
 * Master switch
 * Safe HTML
-* After native tabs
+* Position per tab
 
 Tabvera Pro adds:
 
@@ -57,6 +57,7 @@ Tabvera Pro adds:
 * Tab ordering
 * Tab icons
 * Conditional display
+* Per-product tabs
 
 The free edition is not a trial and its features stay available without a time limit.
 
@@ -111,6 +112,9 @@ Tabvera does not connect to any external services. It makes no remote API calls,
 Tabvera is fully translatable and ships the `tabvera.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.2.1 =
+* Readme and settings screen: PRO features documented.
 
 = 1.2.0 =
 * New: a Position setting per tab: first, after the description, before the reviews, or after the reviews. Existing tabs stay after the reviews.

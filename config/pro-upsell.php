@@ -38,5 +38,9 @@ return [
             'en' => ['title' => 'Conditional display', 'desc' => 'Show or hide tabs by stock status or user role (shipped).'],
             'pl' => ['title' => 'Warunkowe wyświetlanie', 'desc' => 'Pokaż lub ukryj zakładki według stanu magazynowego lub roli (wdrożone).'],
         ],
+        [
+            'en' => ['title' => 'Per-product tabs', 'desc' => 'Own content for a global tab on one product, tabs for one product only and a Documents tab with files from the media library (classic product editor).'],
+            'pl' => ['title' => 'Zakładki per produkt', 'desc' => 'Własna treść zakładki globalnej na jednym produkcie, zakładki tylko dla jednego produktu i zakładka Dokumenty z plikami z biblioteki mediów (klasyczny edytor produktu).'],
+        ],
     ],
 ];
