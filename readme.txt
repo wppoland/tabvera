@@ -4,7 +4,7 @@ Tags: woocommerce, product tabs, custom tabs, product page, tabs
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -112,6 +112,9 @@ Tabvera does not connect to any external services. It makes no remote API calls,
 Tabvera is fully translatable and ships the `tabvera.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.2.2 =
+* Plugins list shows a shortcut to the settings screen.
 
 = 1.2.1 =
 * Readme and settings screen: PRO features documented.
