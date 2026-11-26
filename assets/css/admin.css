@@ -2,8 +2,8 @@
  * Tabby - admin styles for the settings screen.
  *
  * Scoped under .tabby-admin so nothing leaks into the rest of wp-admin. Uses
- * custom properties, logical properties, fluid spacing, a dark-mode pass and
- * reduced-motion guards. No layout shift: transitions are limited to
+ * custom properties, logical properties, fluid spacing and reduced-motion
+ * guards. No layout shift: transitions are limited to
  * opacity/background/transform.
  */
 
