@@ -4,7 +4,7 @@ Tags: woocommerce, product tabs, custom tabs, product page, tabs
 Requires at least: 6.5
 Tested up to: 7.2
 Requires PHP: 8.1
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -112,6 +112,9 @@ Tabvera does not connect to any external services. It makes no remote API calls,
 Tabvera is fully translatable and ships the `tabvera.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.2.4 =
+* Readme: the FAQ names the settings screen as the menu shows it (WooCommerce > Tabvera Tabs). No code change.
 
 = 1.2.3 =
 * Admin stylesheet header no longer mentions a dark mode the settings screen does not have.
