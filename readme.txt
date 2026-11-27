@@ -87,7 +87,7 @@ On the single product page tab list, at the position set on each tab: first, aft
 
 = Can I reuse the same tab on many products? =
 
-Yes. Tabs are created once under WooCommerce > Tabvera and every enabled tab shows on every product, so one tab is reused across the whole catalogue by design. Choosing which products a tab appears on is not part of the free plugin.
+Yes. Tabs are created once under WooCommerce > Tabvera Tabs and every enabled tab shows on every product, so one tab is reused across the whole catalogue by design. Choosing which products a tab appears on is not part of the free plugin.
 
 = Is tab HTML safe? =
 
